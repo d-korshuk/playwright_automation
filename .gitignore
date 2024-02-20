@@ -13,4 +13,5 @@ __pycache__/
 browser/
 playwright.config.json
 *.env
-/config/
+/config/secret_config.py
+
