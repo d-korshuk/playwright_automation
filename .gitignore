@@ -1,0 +1,15 @@
+*.pyc
+/venv/
+.env
+logs/
+tmp/
+.idea/
+allure-reports/
+.pytest_cache
+credentials.ini
+__pycache__/
+.playwright/
+.playwright-log/
+browser/
+playwright.config.json
+*.env
