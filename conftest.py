@@ -1,4 +1,3 @@
-import configparser
 import pytest
 from playwright.sync_api import sync_playwright
 
@@ -10,6 +9,23 @@ from playwright.sync_api import expect
 import os
 
 expect.set_options(timeout=15_000)
+
+try:
+    PASSWORD = os.environ['PASSWORD']
+except KeyError:
+    import config.secret_config
+
+    PASSWORD = config.secret_config.PASSWORD
+
+try:
+    URL = os.environ['URL']
+except KeyError:
+    URL = config.secret_config.URL
+
+try:
+    EMAIL = os.environ['EMAIL']
+except KeyError:
+    EMAIL = config.secret_config.EMAIL
 
 
 @pytest.fixture(scope="function")
