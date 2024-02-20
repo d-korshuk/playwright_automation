@@ -13,7 +13,6 @@ expect.set_options(timeout=15_000)
 try:
     PASSWORD = os.environ['PASSWORD']
 except KeyError:
-    import config.secret_config
 
     PASSWORD = config.secret_config.PASSWORD
 
