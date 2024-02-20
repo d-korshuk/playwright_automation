@@ -2,9 +2,12 @@ import configparser
 import pytest
 from playwright.sync_api import sync_playwright
 
+import config.secret_config
 from pages.dashboard_page import DashboardPage
 from pages.login_page import LoginPage
 from playwright.sync_api import expect
+
+import os
 
 expect.set_options(timeout=15_000)
 
@@ -23,30 +26,23 @@ def login_page(page):
 
 
 @pytest.fixture(scope="function")
-def config():
-    parser = configparser.ConfigParser()
-    parser.read("config/credentials.ini")
-    return parser
-
-
-@pytest.fixture(scope="function")
 def page(browser):
     return browser.new_page()
 
 
 @pytest.fixture(scope="function")
-def setup(browser, page, config):
-    url = config.get('app', 'url')
+def setup(browser, page):
+    url = config.secret_config.URL
     page.goto(url)
 
 
 @pytest.fixture(scope="function")
-def login_to_app(login_page, config):
+def login_to_app(login_page):
     login_page.click_header_login_btn()
-    email = config.get('app', 'brand_email')
+    email = config.secret_config.EMAIL
     login_page.enter_email(email)
     login_page.click_next_btn()
-    password = config.get('app', 'password')
+    password = config.secret_config.PASSWORD
     login_page.enter_password(password)
     login_page.click_submit_button()
     yield

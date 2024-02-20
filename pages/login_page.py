@@ -13,9 +13,6 @@ class LoginPage:
         self.submit_btn_locator = page.locator('button:has-text("Log in")')
         self.error_message_locator = page.locator('[data-error-code="wrong-email-credentials"]')
 
-    #def open_login_page(self):
-    #    self.page.goto("https://dev.cloud-tala.com/login")
-
     def click_header_login_btn(self):
         self.login_btn_header_locator.click()
 
