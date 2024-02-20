@@ -40,6 +40,6 @@ jobs:
       env:
         PASSWORD: ${{secrets.PASSWORD}}
         URL: ${{secrets.URL}}
-        BRAND_EMAIL: ${{secrets.BRAND_EMAIL}}
+        EMAIL: ${{secrets.BRAND_EMAIL}}
       run: |
         pytest
