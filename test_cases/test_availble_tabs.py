@@ -8,7 +8,7 @@ from playwright.sync_api import expect
 @pytest.mark.usefixtures("setup")
 class TestTabs:
 
-    @pytest.mark.tabs
+    #@pytest.mark.tabs
     #@allure.title("Check the tab title - C7294")
     def test_tab_title(self, login_to_app, dashboard_page, login_page):
         time.sleep(3)
