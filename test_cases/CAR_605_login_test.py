@@ -20,7 +20,7 @@ class TestLoginPage:
 
         login_page.enter_password(password)
         login_page.click_submit_button()
-        login_page.click_continue_wo_pass()
+        #login_page.click_continue_wo_pass()
 
         expect(markets_page.logout_btn_locator).to_be_visible()
 
