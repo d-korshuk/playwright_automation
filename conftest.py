@@ -47,6 +47,7 @@ def login_to_app(login_page):
     password = os.environ['PASSWORD']
     login_page.enter_password(password)
     login_page.click_submit_button()
+    login_page.click_continue_wo_pass()
     yield
 
 

@@ -12,6 +12,7 @@ class LoginPage:
         self.password_locator = "input[id='password']"
         self.submit_btn_locator = page.locator('button:has-text("Log in")')
         self.error_message_locator = page.locator('[data-error-code="wrong-email-credentials"]')
+        self.continue_wo_passkey = page.get_by_role("button", name="Continue without passkeys")
 
     def click_header_login_btn(self):
         self.login_btn_header_locator.click()
@@ -26,6 +27,9 @@ class LoginPage:
         password_input = self.page.wait_for_selector(self.password_locator)
         password_input.click()
         password_input.fill(password)
+
+    def click_continue_wo_pass(self):
+        self.continue_wo_passkey.click()
 
     def click_submit_button(self):
         self.submit_btn_locator.click()
