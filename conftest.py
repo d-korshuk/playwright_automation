@@ -35,17 +35,17 @@ def page(browser):
 
 @pytest.fixture(scope="function")
 def setup(browser, page):
-    url = config.secret_config.URL
+    url = os.environ['URL']
     page.goto(url)
 
 
 @pytest.fixture(scope="function")
 def login_to_app(login_page):
     login_page.click_header_login_btn()
-    email = config.secret_config.EMAIL
+    email = os.environ['EMAIL']
     login_page.enter_email(email)
     login_page.click_next_btn()
-    password = config.secret_config.PASSWORD
+    password = os.environ['PASSWORD']
     login_page.enter_password(password)
     login_page.click_submit_button()
     yield
