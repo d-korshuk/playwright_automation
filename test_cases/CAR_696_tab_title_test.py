@@ -4,7 +4,7 @@ from playwright.sync_api import expect
 
 
 @pytest.mark.usefixtures("setup")
-class TestDashboardPage:
+class TestPageTitle:
 
     #@pytest.mark.title
     #@allure.title("Check the tab title - C7294")
