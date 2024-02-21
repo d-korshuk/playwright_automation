@@ -1,5 +1,3 @@
-
-
 name: Playwright tests
 
 on:
@@ -41,8 +39,7 @@ jobs:
         URL: ${{ secrets.URL }}
         EMAIL: ${{ secrets.EMAIL }}
       run: |
-        pytest
-
+        xvfb-run pytest
     - name: Print secrets
       run: |
         echo "URL: $URL"
