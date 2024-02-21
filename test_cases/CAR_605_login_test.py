@@ -4,14 +4,13 @@ import pytest
 import allure
 from playwright.sync_api import expect
 
-import config.secret_config
 
 
 @pytest.mark.usefixtures("setup")
 class TestLoginPage:
 
     @pytest.mark.login
-    @allure.title("Check the SSO flow for the registered user - C6952 ")
+    #@allure.title("Check the SSO flow for the registered user - C6952 ")
     def test_sso_login(self, login_page, dashboard_page, page):
         login_page.click_header_login_btn()
         email = os.environ['EMAIL']
@@ -26,7 +25,7 @@ class TestLoginPage:
 
         expect(dashboard_page.logout_btn_locator).to_be_visible()
 
-    @allure.title("Check that user in not able to login with invalid credentials - C6952 ")
+    #@allure.title("Check that user in not able to login with invalid credentials - C6952 ")
     @pytest.mark.login
     def test_sso_wrong_password(self, login_page, page):
         login_page.click_header_login_btn()
