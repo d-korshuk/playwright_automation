@@ -1,7 +1,7 @@
 from playwright.sync_api import Page
 
 
-class DashboardPage:
+class MarketsPage:
     def __init__(self, page=Page):
         self.page = page
         self.overview_tab_locator = page.get_by_role("tab", name="overview")

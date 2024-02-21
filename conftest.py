@@ -1,7 +1,7 @@
 import pytest
 from playwright.sync_api import sync_playwright
 
-from pages.dashboard_page import DashboardPage
+from pages.markets_page import MarketsPage
 from pages.login_page import LoginPage
 from playwright.sync_api import expect
 
@@ -51,5 +51,5 @@ def login_to_app(login_page):
 
 
 @pytest.fixture(scope="function")
-def dashboard_page(page):
-    return DashboardPage(page)
+def markets_page(page):
+    return MarketsPage(page)
