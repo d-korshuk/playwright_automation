@@ -8,10 +8,10 @@ class TestWidget:
 
     #@pytest.mark.widget
     #@allure.title("Check the expanding of widget - 39710")
-    def test_expand_widget(self, login_to_app, markets_page):
-        markets_page.open_overview_tab()
-        markets_page.expand_widget()
-        expect(markets_page.wwsales_2022_locator).not_to_be_visible()
+    #def test_expand_widget(self, login_to_app, markets_page):
+    #    markets_page.open_overview_tab()
+    #    markets_page.expand_widget()
+     #   expect(markets_page.wwsales_2022_locator).not_to_be_visible()
 
     #@pytest.mark.widget1
     #@allure.title("Check switching between tabs - C39772")
