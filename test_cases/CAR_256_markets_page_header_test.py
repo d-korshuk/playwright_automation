@@ -9,7 +9,7 @@ from playwright.sync_api import expect
 class TestPageHeader:
 
     # @allure.title("Check the markets page header/logo and available tabs - C35686")
-    @pytest.mark.test11
+
     def test_tab_header(self, login_to_app, markets_page, login_page):
         expect(markets_page.page_logo).to_be_visible()
         expect(markets_page.page_title).to_be_visible()
