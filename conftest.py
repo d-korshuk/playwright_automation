@@ -1,7 +1,6 @@
 import pytest
 from playwright.sync_api import sync_playwright
 
-import config.secret_config
 from pages.dashboard_page import DashboardPage
 from pages.login_page import LoginPage
 from playwright.sync_api import expect
