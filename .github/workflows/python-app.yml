@@ -43,3 +43,9 @@ jobs:
         EMAIL: ${{ secrets.EMAIL }}
       run: |
         pytest
+
+    - name: Print secrets
+      run: |
+        echo "URL: $URL"
+        echo "EMAIL: $EMAIL"
+        echo "PASSWORD: $PASSWORD"
