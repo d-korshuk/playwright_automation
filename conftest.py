@@ -10,23 +10,9 @@ import os
 
 expect.set_options(timeout=15_000)
 
-try:
-    PASSWORD = os.environ['PASSWORD']
-except KeyError:
-    import config.secret_config
-    PASSWORD = config.secret_config.PASSWORD
-
-try:
-    URL = os.environ['URL']
-except KeyError:
-    import config.secret_config
-    URL = config.secret_config.URL
-
-try:
-    EMAIL = os.environ['EMAIL']
-except KeyError:
-    import config.secret_config
-    EMAIL = config.secret_config.EMAIL
+URL = os.environ['URL']
+EMAIL = os.environ['EMAIL']
+PASSWORD = os.environ['PASSWORD']
 
 
 @pytest.fixture(scope="function")

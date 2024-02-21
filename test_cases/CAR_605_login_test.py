@@ -14,6 +14,7 @@ class TestLoginPage:
         login_page.click_header_login_btn()
         email = config.secret_config.EMAIL
 
+
         login_page.enter_email(email)
         login_page.click_next_btn()
         password = config.secret_config.PASSWORD
