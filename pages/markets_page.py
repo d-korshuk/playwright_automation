@@ -54,11 +54,11 @@ class MarketsPage:
     def click_logout_button(self):
         self.logout_btn_locator.click()
 
-    def expand_widget(self):
-        self.top_by_sales_expand_icon_locator.click()
+    #def expand_widget(self):
+    #    self.top_by_sales_expand_icon_locator.click()
 
-    def narrow_widget(self):
-        self.top_by_sales_narrow_icon_locator.click()
+    #def narrow_widget(self):
+    #    self.top_by_sales_narrow_icon_locator.click()
 
     def select_companies_tab(self):
         self.top_by_sales_companies_tab_locator.click()
