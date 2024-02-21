@@ -6,7 +6,6 @@ from playwright.sync_api import expect
 @pytest.mark.usefixtures("setup")
 class TestWidget:
 
-    #@pytest.mark.widget
     #@allure.title("Check the expanding of widget - 39710")
     #def test_expand_widget(self, login_to_app, markets_page):
     #    markets_page.open_overview_tab()
