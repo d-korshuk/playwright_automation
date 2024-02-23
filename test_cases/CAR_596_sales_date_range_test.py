@@ -1,4 +1,6 @@
 import random
+import time
+
 import pytest
 from playwright.sync_api import expect
 
@@ -50,9 +52,7 @@ class TestSalesDateRange:
         expect(markets_page.from_dropdown_locator).to_have_text(selected_from_year)
         expect(markets_page.to_dropdown_locator).to_have_text(selected_to_year)
 
-    @pytest.mark.sales
     def test_from_cant_be_greater_than_to(self, login_to_app, markets_page):
-
         markets_page.open_to_dropdown()
         selected_to_year = str(random.randint(1984, 2021))
         markets_page.select_to_year_item(selected_to_year)
@@ -60,3 +60,6 @@ class TestSalesDateRange:
             has_text=selected_to_year).nth(3)
 
         expect(markets_page.to_dropdown_locator).not_to_be_visible()
+
+
+
