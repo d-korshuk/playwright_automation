@@ -1,4 +1,6 @@
 import random
+import time
+
 import pytest
 from playwright.sync_api import expect
 
@@ -37,3 +39,19 @@ class TestSalesDateRange:
         markets_page.to_dropdown_locator = markets_page.page.get_by_test_id("boxRangeSelector").locator("div").filter(
             has_text=selected_to_year).nth(3)
         expect(markets_page.to_dropdown_locator).to_be_visible()
+
+    def test_select_equal_years(self, login_to_app, markets_page):
+        markets_page.open_from_dropdown()
+        selected_from_year = "2015"
+        markets_page.select_from_year_item(selected_from_year)
+        markets_page.from_dropdown_locator = markets_page.page.get_by_test_id("boxRangeSelector").locator("div").filter(
+            has_text=selected_from_year).nth(3)
+
+        markets_page.open_to_dropdown()
+        selected_to_year = "2015"
+        markets_page.select_to_year_item(selected_to_year)
+        markets_page.to_dropdown_locator = markets_page.page.get_by_test_id("boxRangeSelector").locator("div").filter(
+            has_text=selected_to_year).nth(3)
+
+        expect(markets_page.from_dropdown_locator).to_have_text("2015")
+        expect(markets_page.to_dropdown_locator).to_have_text("2015")

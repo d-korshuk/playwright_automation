@@ -82,7 +82,7 @@ class MarketsPage:
         self.from_dropdown_locator.click()
 
     def open_to_dropdown(self):
-        self.from_dropdown_locator.click()
+        self.to_dropdown_locator.click()
 
     def get_from_dropdown_year_locator(self, year):
         return self.page.get_by_role("option", name=str(year))
