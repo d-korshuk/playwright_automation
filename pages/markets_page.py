@@ -39,6 +39,12 @@ class MarketsPage:
 
         # Company tab locators
 
+        # Sales Date Range locators
+        self.from_dropdown_locator = page.get_by_test_id("boxRangeSelector").locator("div").filter(has_text="2022").nth(3)
+        self.to_dropdown_locator = page.get_by_test_id("boxRangeSelector").locator("div").filter(has_text="2028").nth(3)
+
+
+
     def open_overview_tab(self):
         self.overview_tab_locator.click()
 
@@ -71,4 +77,26 @@ class MarketsPage:
 
     def select_product_tab(self):
         self.top_by_sales_product_tab_locator.click()
+
+    def open_from_dropdown(self):
+        self.from_dropdown_locator.click()
+
+    def open_to_dropdown(self):
+        self.from_dropdown_locator.click()
+
+    def get_from_dropdown_year_locator(self, year):
+        return self.page.get_by_role("option", name=str(year))
+
+    def get_to_dropdown_year_locator(self, year):
+        return self.page.get_by_role("option", name=str(year))
+
+
+
+    def select_from_year_item(self, year):
+        year_locator = self.get_from_dropdown_year_locator(year)
+        year_locator.click()
+
+    def select_to_year_item(self, year):
+        year_locator = self.get_to_dropdown_year_locator(year)
+        year_locator.click()
 
