@@ -22,7 +22,6 @@ class MarketsPage:
         self.top_company_locator = page.get_by_test_id("topCompany")
         self.top_product_locator = page.get_by_test_id("topProduct")
 
-
         # Top 5 widget locators
         self.top_by_sales_widget_title_locator = page.get_by_text("Top 5 by Sales")
         self.top_by_sales_widget_subheader_locator = page.get_by_test_id("topSales").get_by_text("2028")
@@ -30,8 +29,8 @@ class MarketsPage:
         self.top_by_sales_companies_tab_locator = page.get_by_role("button", name="Companies")
         self.top_by_sales_technology_tab_locator = page.get_by_role("button", name="Technology")
         self.top_by_sales_moa_tab_locator = page.get_by_role("button", name="MoA")
-        #self.top_by_sales_expand_icon_locator = page.
-        #self.top_by_sales_narrow_icon_locator = page.
+        # self.top_by_sales_expand_icon_locator = page.
+        # self.top_by_sales_narrow_icon_locator = page.
 
         # Sales tab locators
 
@@ -40,10 +39,9 @@ class MarketsPage:
         # Company tab locators
 
         # Sales Date Range locators
-        self.from_dropdown_locator = page.get_by_test_id("boxRangeSelector").locator("div").filter(has_text="2022").nth(3)
+        self.from_dropdown_locator = page.get_by_test_id("boxRangeSelector").locator("div").filter(has_text="2022").nth(
+            3)
         self.to_dropdown_locator = page.get_by_test_id("boxRangeSelector").locator("div").filter(has_text="2028").nth(3)
-
-
 
     def open_overview_tab(self):
         self.overview_tab_locator.click()
@@ -60,10 +58,10 @@ class MarketsPage:
     def click_logout_button(self):
         self.logout_btn_locator.click()
 
-    #def expand_widget(self):
+    # def expand_widget(self):
     #    self.top_by_sales_expand_icon_locator.click()
 
-    #def narrow_widget(self):
+    # def narrow_widget(self):
     #    self.top_by_sales_narrow_icon_locator.click()
 
     def select_companies_tab(self):
@@ -90,8 +88,6 @@ class MarketsPage:
     def get_to_dropdown_year_locator(self, year):
         return self.page.get_by_role("option", name=str(year))
 
-
-
     def select_from_year_item(self, year):
         year_locator = self.get_from_dropdown_year_locator(year)
         year_locator.click()
@@ -99,4 +95,3 @@ class MarketsPage:
     def select_to_year_item(self, year):
         year_locator = self.get_to_dropdown_year_locator(year)
         year_locator.click()
-
