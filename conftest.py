@@ -14,7 +14,7 @@ EMAIL = os.environ['EMAIL']
 PASSWORD = os.environ['PASSWORD']
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="class")
 def browser():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=False)

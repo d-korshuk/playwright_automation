@@ -34,7 +34,7 @@ class MarketsPage:
 
         # Sales tab locators
         self.sales_wwsales_2022_locator = page.get_by_test_id("worldwideSalesStart")
-        self.sales_wwsales_2022_locator = page.get_by_test_id("worldwideSalesEnd")
+        self.sales_wwsales_2028_locator = page.get_by_test_id("worldwideSalesEnd")
         self.sales_cagr_locator = page.get_by_test_id("cagr")
         self.sales_wwsales_2028_diff_locator = page.get_by_test_id("worldwideSalesDiff")
 
