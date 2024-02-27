@@ -14,13 +14,13 @@ class MarketsPage:
 
         # Overview tab locators
 
-        self.wwsales_2022_locator = page.get_by_test_id("worldwideSalesStart")
-        self.wwsales_2028_locator = page.get_by_test_id("worldwideSalesEnd")
-        self.wwsales_2028_diff_locator = page.get_by_test_id("worldwideSalesDiff")
-        self.unique_act_products_locator = page.get_by_test_id("uniqueActiveProducts")
-        self.active_companies_locator = page.get_by_test_id("activeCompanies")
-        self.top_company_locator = page.get_by_test_id("topCompany")
-        self.top_product_locator = page.get_by_test_id("topProduct")
+        self.overview_wwsales_2022_locator = page.get_by_test_id("worldwideSalesStart")
+        self.overview_wwsales_2028_locator = page.get_by_test_id("worldwideSalesEnd")
+        self.overview_wwsales_2028_diff_locator = page.get_by_test_id("worldwideSalesDiff")
+        self.overview_unique_act_products_locator = page.get_by_test_id("uniqueActiveProducts")
+        self.overview_active_companies_locator = page.get_by_test_id("activeCompanies")
+        self.overview_top_company_locator = page.get_by_test_id("topCompany")
+        self.overview_top_product_locator = page.get_by_test_id("topProduct")
 
         # Top 5 widget locators
         self.top_by_sales_widget_title_locator = page.get_by_text("Top 5 by Sales")
@@ -33,6 +33,10 @@ class MarketsPage:
         # self.top_by_sales_narrow_icon_locator = page.
 
         # Sales tab locators
+        self.sales_wwsales_2022_locator = page.get_by_test_id("worldwideSalesStart")
+        self.sales_wwsales_2022_locator = page.get_by_test_id("worldwideSalesEnd")
+        self.sales_cagr_locator = page.get_by_test_id("cagr")
+        self.sales_wwsales_2028_diff_locator = page.get_by_test_id("worldwideSalesDiff")
 
         # Pipeline tab locators
 
