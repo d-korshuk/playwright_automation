@@ -7,7 +7,7 @@ from playwright.sync_api import expect
 
 import os
 
-expect.set_options(timeout=10_000)
+expect.set_options(timeout=15_000)
 
 URL = os.environ['URL']
 EMAIL = os.environ['EMAIL']

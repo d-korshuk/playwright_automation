@@ -39,6 +39,10 @@ class MarketsPage:
         self.sales_wwsales_2028_diff_locator = page.get_by_test_id("worldwideSalesDiff")
 
         # Pipeline tab locators
+        self.pipeline_products_locator = page.get_by_test_id("products")
+        self.pipeline_products_by_indication_locator = page.get_by_test_id("productsIndication")
+        self.pipeline_companies_locator = page.get_by_test_id("companies")
+        self.pipeline_indications_locator = page.get_by_test_id("indications")
 
         # Company tab locators
 

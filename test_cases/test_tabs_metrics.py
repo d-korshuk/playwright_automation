@@ -21,3 +21,10 @@ class TestMetrics:
         expect(markets_page.sales_wwsales_2028_locator).to_have_text("$1,327m")
         expect(markets_page.sales_cagr_locator).to_have_text("+5.8%")
         expect(markets_page.sales_wwsales_2028_diff_locator).to_have_text("+383m")
+
+    def test_pipeline_tab_metrics(self, login_to_app, markets_page):
+        markets_page.open_pipeline_tab()
+        expect(markets_page.pipeline_products_locator).to_have_text("51,369")
+        expect(markets_page.pipeline_products_by_indication_locator).to_have_text("51,512")
+        expect(markets_page.pipeline_companies_locator).to_have_text("10,689")
+        expect(markets_page.pipeline_indications_locator).to_have_text("844")
