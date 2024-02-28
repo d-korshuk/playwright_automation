@@ -15,14 +15,16 @@ class TestMetrics:
         expect(markets_page.overview_top_company_locator).to_have_text("Pfizer")
         expect(markets_page.overview_top_product_locator).to_have_text("Comirnaty")
 
-    def test_sales_tab_metrics(self, login_to_app, markets_page):
+    def test_sales_tab_metrics(self, markets_page):
+        markets_page.click_here_to_nav_to_dashboard()
         markets_page.open_sales_tab()
         expect(markets_page.sales_wwsales_2022_locator).to_have_text("$944m")
         expect(markets_page.sales_wwsales_2028_locator).to_have_text("$1,327m")
         expect(markets_page.sales_cagr_locator).to_have_text("+5.8%")
         expect(markets_page.sales_wwsales_2028_diff_locator).to_have_text("+383m")
 
-    def test_pipeline_tab_metrics(self, login_to_app, markets_page):
+    def test_pipeline_tab_metrics(self, markets_page):
+        markets_page.click_here_to_nav_to_dashboard()
         markets_page.open_pipeline_tab()
         expect(markets_page.pipeline_products_locator).to_have_text("51,369")
         expect(markets_page.pipeline_products_by_indication_locator).to_have_text("51,512")

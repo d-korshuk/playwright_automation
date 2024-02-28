@@ -34,7 +34,8 @@ class TestSalesDateRange:
 
         expect(markets_page.to_dropdown_locator).to_be_visible()
 
-    def test_select_equal_years(self, login_to_app, markets_page):
+    def test_select_equal_years(self, markets_page):
+        markets_page.click_here_to_nav_to_dashboard()
         markets_page.open_from_dropdown()
         selected_from_year = "2015"
         markets_page.select_from_year_item(selected_from_year)
@@ -50,7 +51,8 @@ class TestSalesDateRange:
         expect(markets_page.from_dropdown_locator).to_have_text(selected_from_year)
         expect(markets_page.to_dropdown_locator).to_have_text(selected_to_year)
 
-    def test_from_cant_be_greater_than_to(self, login_to_app, markets_page):
+    def test_from_cant_be_greater_than_to(self, markets_page):
+        markets_page.click_here_to_nav_to_dashboard()
         markets_page.open_to_dropdown()
         selected_to_year = str(random.randint(1984, 2021))
         markets_page.select_to_year_item(selected_to_year)

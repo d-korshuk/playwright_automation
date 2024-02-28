@@ -22,12 +22,12 @@ def browser():
         browser.close()
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="class")
 def login_page(page):
     return LoginPage(page)
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="class")
 def page(browser):
     return browser.new_page()
 

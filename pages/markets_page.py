@@ -11,6 +11,14 @@ class MarketsPage:
         self.pipeline_tab_locator = page.get_by_role("tab", name="pipeline")
         self.company_tab_locator = page.get_by_role("tab", name="company")
         self.logout_btn_locator = page.get_by_role("button", name="Logout")
+        self.click_to_nav_to_dashboard = page.get_by_role("link", name="here")
+
+
+
+
+
+
+
 
         # Overview tab locators
 
@@ -103,3 +111,6 @@ class MarketsPage:
     def select_to_year_item(self, year):
         year_locator = self.get_to_dropdown_year_locator(year)
         year_locator.click()
+
+    def click_here_to_nav_to_dashboard(self):
+        self.click_to_nav_to_dashboard.click()
