@@ -30,3 +30,15 @@ class TestMetrics:
         expect(markets_page.pipeline_products_by_indication_locator).to_have_text("51,512")
         expect(markets_page.pipeline_companies_locator).to_have_text("10,689")
         expect(markets_page.pipeline_indications_locator).to_have_text("844")
+
+    def test_company_tab_metrics(self, markets_page):
+        markets_page.click_here_to_nav_to_dashboard()
+        markets_page.open_company_tab()
+        expect(markets_page.company_active_companies_locator).to_have_text("717")
+        expect(markets_page.company_wwsales_2022_locator).to_have_text("$944m")
+        expect(markets_page.company_wwsales_2028_locator).to_have_text("$1,327m")
+        expect(markets_page.company_wwsales_2028_diff_locator).to_have_text("+383m")
+        expect(markets_page.company_cagr_locator).to_have_text("+5.8%")
+        expect(markets_page.company_listed_locator).to_have_text("5338")
+        expect(markets_page.company_private_locattor).to_have_text("403")
+        expect(markets_page.company_pjv_locator).to_have_text("6")

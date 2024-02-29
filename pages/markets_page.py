@@ -14,14 +14,7 @@ class MarketsPage:
         self.click_to_nav_to_dashboard = page.get_by_role("link", name="here")
 
 
-
-
-
-
-
-
         # Overview tab locators
-
         self.overview_wwsales_2022_locator = page.get_by_test_id("worldwideSalesStart")
         self.overview_wwsales_2028_locator = page.get_by_test_id("worldwideSalesEnd")
         self.overview_wwsales_2028_diff_locator = page.get_by_test_id("worldwideSalesDiff")
@@ -53,6 +46,14 @@ class MarketsPage:
         self.pipeline_indications_locator = page.get_by_test_id("indications")
 
         # Company tab locators
+        self.company_active_companies_locator = page.get_by_test_id("activeCompanies")
+        self.company_wwsales_2022_locator = page.get_by_test_id("worldwideSalesStart")
+        self.company_wwsales_2028_locator = page.get_by_test_id("worldwideSalesEnd")
+        self.company_wwsales_2028_diff_locator = page.get_by_test_id("worldwideSalesDiff")
+        self.company_cagr_locator = page.get_by_test_id("cagr")
+        self.company_listed_locator = page.get_by_test_id("listedCompanies")
+        self.company_private_locattor = page.get_by_test_id("privateCompanies")
+        self.company_pjv_locator = page.get_by_test_id("privateJVCompanies")
 
         # Sales Date Range locators
         self.from_dropdown_locator = page.get_by_test_id("boxRangeSelector").locator("div").filter(has_text="2022").nth(
