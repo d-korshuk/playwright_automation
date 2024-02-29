@@ -13,7 +13,6 @@ class MarketsPage:
         self.logout_btn_locator = page.get_by_role("button", name="Logout")
         self.click_to_nav_to_dashboard = page.get_by_role("link", name="here")
 
-
         # Overview tab locators
         self.overview_wwsales_2022_locator = page.get_by_test_id("worldwideSalesStart")
         self.overview_wwsales_2028_locator = page.get_by_test_id("worldwideSalesEnd")
@@ -55,10 +54,16 @@ class MarketsPage:
         self.company_private_locattor = page.get_by_test_id("privateCompanies")
         self.company_pjv_locator = page.get_by_test_id("privateJVCompanies")
 
+        # Global Filters locators
+        self.global_filters_collapse_icon_locator = page.get_by_test_id("drawer-btn")
+        self.global_filters_clear_all_btn_locator = page.get_by_role("button", name="Clear all")
+
         # Sales Date Range locators
         self.from_dropdown_locator = page.get_by_test_id("boxRangeSelector").locator("div").filter(has_text="2022").nth(
             3)
         self.to_dropdown_locator = page.get_by_test_id("boxRangeSelector").locator("div").filter(has_text="2028").nth(3)
+
+
 
     def open_overview_tab(self):
         self.overview_tab_locator.click()
