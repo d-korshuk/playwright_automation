@@ -4,6 +4,8 @@ from playwright.sync_api import Page
 class MarketsPage:
     def __init__(self, page=Page):
         self.page = page
+
+        #General locators
         self.page_logo = page.get_by_test_id("AutoGraphIcon")
         self.page_title = page.get_by_text("Markets")
         self.overview_tab_locator = page.get_by_role("tab", name="overview")
