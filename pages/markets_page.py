@@ -24,21 +24,11 @@ class MarketsPage:
         self.overview_top_company_locator = page.get_by_test_id("topCompany")
         self.overview_top_product_locator = page.get_by_test_id("topProduct")
 
-        # Top 5 widget locators
-        self.top_by_sales_widget_title_locator = page.get_by_text("Top 5 by Sales")
-        self.top_by_sales_widget_subheader_locator = page.get_by_test_id("topSales").get_by_text("2029")
-        self.top_by_sales_product_tab_locator = page.get_by_test_id("topSales").get_by_role("button", name="Product")
-        self.top_by_sales_companies_tab_locator = page.get_by_role("button", name="Companies")
-        self.top_by_sales_technology_tab_locator = page.get_by_role("button", name="Technology")
-        self.top_by_sales_moa_tab_locator = page.get_by_role("button", name="MoA")
-        # self.top_by_sales_expand_icon_locator = page.
-        # self.top_by_sales_narrow_icon_locator = page.
-
         # Sales tab locators
         self.sales_wwsales_2023_locator = page.get_by_test_id("worldwideSalesStart")
-        self.sales_wwsales_2029_locator = page.get_by_test_id("worldwideSalesEnd")
-        self.sales_cagr_locator = page.get_by_test_id("cagr")
+        self.sales_wwsales_2029_locator = page.get_by_test_id("noMetricsData").first
         self.sales_wwsales_2029_diff_locator = page.get_by_test_id("worldwideSalesDiff")
+        self.sales_cagr_locator = page.get_by_test_id("noMetricsData").nth(1)
 
         # Pipeline tab locators
         self.pipeline_products_locator = page.get_by_test_id("products")
@@ -49,12 +39,22 @@ class MarketsPage:
         # Company tab locators
         self.company_active_companies_locator = page.get_by_test_id("activeCompanies")
         self.company_wwsales_2023_locator = page.get_by_test_id("worldwideSalesStart")
-        self.company_wwsales_2029_locator = page.get_by_test_id("worldwideSalesEnd")
+        self.company_wwsales_2029_locator = page.get_by_test_id("noMetricsData").first
         self.company_wwsales_2029_diff_locator = page.get_by_test_id("worldwideSalesDiff")
-        self.company_cagr_locator = page.get_by_test_id("cagr")
+        self.company_cagr_locator = page.get_by_test_id("noMetricsData").nth(1)
         self.company_listed_locator = page.get_by_test_id("listedCompanies")
-        self.company_private_locattor = page.get_by_test_id("privateCompanies")
+        self.company_private_locator = page.get_by_test_id("privateCompanies")
         self.company_pjv_locator = page.get_by_test_id("privateJVCompanies")
+
+        # Top 5 widget locators
+        self.top_by_sales_widget_title_locator = page.get_by_text("Top 5 by Sales")
+        self.top_by_sales_widget_subheader_locator = page.get_by_test_id("topSales").get_by_text("2029")
+        self.top_by_sales_product_tab_locator = page.get_by_test_id("topSales").get_by_role("button", name="Product")
+        self.top_by_sales_companies_tab_locator = page.get_by_role("button", name="Companies")
+        self.top_by_sales_technology_tab_locator = page.get_by_role("button", name="Technology")
+        self.top_by_sales_moa_tab_locator = page.get_by_role("button", name="MoA")
+        # self.top_by_sales_expand_icon_locator =
+        # self.top_by_sales_narrow_icon_locator =
 
         # Global Filters locators
         self.global_filters_collapse_icon_locator = page.get_by_test_id("drawer-btn")
