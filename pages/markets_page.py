@@ -16,9 +16,9 @@ class MarketsPage:
         self.click_to_nav_to_dashboard = page.get_by_role("link", name="here")
 
         # Overview tab locators
-        self.overview_wwsales_2022_locator = page.get_by_test_id("worldwideSalesStart")
-        self.overview_wwsales_2028_locator = page.get_by_test_id("worldwideSalesEnd")
-        self.overview_wwsales_2028_diff_locator = page.get_by_test_id("worldwideSalesDiff")
+        self.overview_wwsales_2023_locator = page.get_by_test_id("worldwideSalesStart")
+        self.overview_wwsales_2029_locator = page.get_by_test_id("noMetricsData")
+        self.overview_wwsales_2029_diff_locator = page.get_by_test_id("worldwideSalesDiff")
         self.overview_unique_act_products_locator = page.get_by_test_id("uniqueActiveProducts")
         self.overview_active_companies_locator = page.get_by_test_id("activeCompanies")
         self.overview_top_company_locator = page.get_by_test_id("topCompany")
