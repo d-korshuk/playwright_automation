@@ -38,6 +38,7 @@ jobs:
         PASSWORD: ${{ secrets.PASSWORD }}
         URL: ${{ secrets.URL }}
         EMAIL: ${{ secrets.EMAIL }}
+        API_URL: ${{ secrets.API_URL }}
       run: |
         xvfb-run pytest
     - name: Print secrets
