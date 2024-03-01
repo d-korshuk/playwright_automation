@@ -106,3 +106,5 @@ class TestMetrics:
         assert expected_company_listed == markets_page.company_listed_locator.inner_text()
         assert expected_company_private == markets_page.company_private_locator.inner_text()
         assert expected_company_pjv == markets_page.company_pjv_locator.inner_text()
+
+
