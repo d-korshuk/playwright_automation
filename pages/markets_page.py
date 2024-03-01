@@ -26,7 +26,7 @@ class MarketsPage:
 
         # Top 5 widget locators
         self.top_by_sales_widget_title_locator = page.get_by_text("Top 5 by Sales")
-        self.top_by_sales_widget_subheader_locator = page.get_by_test_id("topSales").get_by_text("2028")
+        self.top_by_sales_widget_subheader_locator = page.get_by_test_id("topSales").get_by_text("2029")
         self.top_by_sales_product_tab_locator = page.get_by_test_id("topSales").get_by_role("button", name="Product")
         self.top_by_sales_companies_tab_locator = page.get_by_role("button", name="Companies")
         self.top_by_sales_technology_tab_locator = page.get_by_role("button", name="Technology")
@@ -35,10 +35,10 @@ class MarketsPage:
         # self.top_by_sales_narrow_icon_locator = page.
 
         # Sales tab locators
-        self.sales_wwsales_2022_locator = page.get_by_test_id("worldwideSalesStart")
-        self.sales_wwsales_2028_locator = page.get_by_test_id("worldwideSalesEnd")
+        self.sales_wwsales_2023_locator = page.get_by_test_id("worldwideSalesStart")
+        self.sales_wwsales_2029_locator = page.get_by_test_id("worldwideSalesEnd")
         self.sales_cagr_locator = page.get_by_test_id("cagr")
-        self.sales_wwsales_2028_diff_locator = page.get_by_test_id("worldwideSalesDiff")
+        self.sales_wwsales_2029_diff_locator = page.get_by_test_id("worldwideSalesDiff")
 
         # Pipeline tab locators
         self.pipeline_products_locator = page.get_by_test_id("products")
@@ -48,9 +48,9 @@ class MarketsPage:
 
         # Company tab locators
         self.company_active_companies_locator = page.get_by_test_id("activeCompanies")
-        self.company_wwsales_2022_locator = page.get_by_test_id("worldwideSalesStart")
-        self.company_wwsales_2028_locator = page.get_by_test_id("worldwideSalesEnd")
-        self.company_wwsales_2028_diff_locator = page.get_by_test_id("worldwideSalesDiff")
+        self.company_wwsales_2023_locator = page.get_by_test_id("worldwideSalesStart")
+        self.company_wwsales_2029_locator = page.get_by_test_id("worldwideSalesEnd")
+        self.company_wwsales_2029_diff_locator = page.get_by_test_id("worldwideSalesDiff")
         self.company_cagr_locator = page.get_by_test_id("cagr")
         self.company_listed_locator = page.get_by_test_id("listedCompanies")
         self.company_private_locattor = page.get_by_test_id("privateCompanies")
@@ -61,9 +61,9 @@ class MarketsPage:
         self.global_filters_clear_all_btn_locator = page.get_by_role("button", name="Clear all")
 
         # Sales Date Range locators
-        self.from_dropdown_locator = page.get_by_test_id("boxRangeSelector").locator("div").filter(has_text="2022").nth(
+        self.from_dropdown_locator = page.get_by_test_id("boxRangeSelector").locator("div").filter(has_text="2023").nth(
             3)
-        self.to_dropdown_locator = page.get_by_test_id("boxRangeSelector").locator("div").filter(has_text="2028").nth(3)
+        self.to_dropdown_locator = page.get_by_test_id("boxRangeSelector").locator("div").filter(has_text="2029").nth(3)
 
 
 
