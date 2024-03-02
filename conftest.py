@@ -57,15 +57,14 @@ def login_to_app(login_page):
 def markets_page(page):
     return MarketsPage(page)
 
+
 @pytest.fixture
 def api_client():
     def _api_client(method, data, headers=None):
         if headers is None:
             headers = {}
 
-        # Add default Authorization header
         headers["Authorization"] = f"Bearer {API_TOKEN}"
-
         url = API_URL
 
         if method.upper() == "GET":
