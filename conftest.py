@@ -1,5 +1,5 @@
 import pytest
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, BrowserContext
 import requests
 from pages.markets_page import MarketsPage
 from pages.login_page import LoginPage
@@ -38,6 +38,11 @@ def page(browser):
 def setup(browser, page):
     url = os.environ['URL']
     page.goto(url)
+    configure_browser_context(page.context)
+
+
+def configure_browser_context(context):
+    context.grant_permissions(["clipboard-read", "notifications", "clipboard-write"])
 
 
 @pytest.fixture(scope="function")

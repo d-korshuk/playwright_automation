@@ -10,7 +10,7 @@ class TestPageHeader:
 
     # @allure.title("Check the markets page header/logo and available tabs - C35686")
 
-    def test_tab_header(self, login_to_app, markets_page, login_page):
+    def test_tab_header(self, login_to_app, markets_page):
         expect(markets_page.page_logo).to_be_visible()
         expect(markets_page.page_title).to_be_visible()
         expect(markets_page.overview_tab_locator).to_have_attribute("aria-selected", "true")

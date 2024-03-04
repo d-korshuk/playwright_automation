@@ -15,6 +15,15 @@ class MarketsPage:
         self.logout_btn_locator = page.get_by_role("button", name="Logout")
         self.click_to_nav_to_dashboard = page.get_by_role("link", name="here")
 
+        # Share button locators
+        self.share_btn_locator = page.get_by_role("button", name="Share")
+        self.share_modal_title_locator = page.get_by_role("heading")
+        self.share_modal_x_icon_locator = page.get_by_label("close")
+        self.share_modal_text_locator = page.get_by_text("Click Copy Link to share this")
+        self.share_modal_cancel_btn_locator = page.get_by_role("button", name="Cancel")
+        self.share_modal_copy_btn_locator = page.get_by_role("button", name="Copy Link")
+        self.share_toast_msg_locator = page.get_by_role("alert")
+
         # Overview tab locators
         self.overview_wwsales_2023_locator = page.get_by_test_id("worldwideSalesStart")
         self.overview_wwsales_2029_locator = page.get_by_test_id("noMetricsData")
@@ -122,3 +131,6 @@ class MarketsPage:
 
     def click_here_to_nav_to_dashboard(self):
         self.click_to_nav_to_dashboard.click()
+
+    def paste_from_clipboard(self):
+        self.page.keyboard.press("Control+V")
