@@ -14,6 +14,8 @@ class MarketsPage:
         self.company_tab_locator = page.get_by_role("tab", name="company")
         self.logout_btn_locator = page.get_by_role("button", name="Logout")
         self.click_to_nav_to_dashboard = page.get_by_role("link", name="here")
+        self.diff_arrow_down_locator = page.get_by_test_id("ArrowDownwardIcon")
+        self.diff_arrow_up_locator = page.get_by_test_id("ArrowUpwardIcon")
 
         # Share button locators
         self.share_btn_locator = page.get_by_role("button", name="Share")

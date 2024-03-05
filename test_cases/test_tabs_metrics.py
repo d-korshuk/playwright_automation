@@ -17,6 +17,7 @@ class TestMetrics:
         if expected_overview_wwsales_2029 is None:
             expected_overview_wwsales_2029 = "No data"
         expected_overview_wwsales_2029_diff = response_json['worldwideSalesDiff']
+
         expected_overview_active_products = response_json['uniqueActiveProducts']
         expected_overview_act_companies = response_json['activeCompanies']
         expected_overview_top_company = response_json['topCompany']
@@ -29,6 +30,10 @@ class TestMetrics:
         assert expected_overview_act_companies == markets_page.overview_active_companies_locator.inner_text()
         assert expected_overview_top_company == markets_page.overview_top_company_locator.inner_text()
         assert expected_overview_top_product == markets_page.overview_top_product_locator.inner_text()
+        if "-" in str(expected_overview_wwsales_2029_diff):
+            assert markets_page.diff_arrow_down_locator.is_visible()
+        else:
+            assert markets_page.diff_arrow_up_locator.is_visible()
 
     def test_sales_tab_metrics(self, markets_page, api_client):
         data = {"context": "talaMarketDashboard",
