@@ -1,6 +1,5 @@
 # import allure
 import pytest
-from playwright.sync_api import expect
 
 
 @pytest.mark.usefixtures("setup")
@@ -76,8 +75,8 @@ class TestMetrics:
         assert expected_pipeline_indications == markets_page.pipeline_indications_locator.inner_text()
 
     def test_company_tab_metrics(self, markets_page, api_client):
-        data = {"context":"talaMarketDashboard",
-                "request":{"functions":{"metrics_company":{"years":[2023,2029]}}}}
+        data = {"context": "talaMarketDashboard",
+                "request": {"functions": {"metrics_company": {"years": [2023, 2029]}}}}
 
         response = api_client("post", data=data)
         response_json = response.json()['response']['functions']['metrics_company']['data'][0]
