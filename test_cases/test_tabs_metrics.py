@@ -58,6 +58,10 @@ class TestMetrics:
         assert expected_sales_wwsales_2029 == markets_page.sales_wwsales_2029_locator.inner_text()
         assert str(expected_sales_wwsales_2029_diff) in markets_page.sales_wwsales_2029_diff_locator.inner_text()
         assert expected_sales_cagr == markets_page.sales_cagr_locator.inner_text()
+        if "-" in str(expected_sales_wwsales_2029_diff):
+            assert markets_page.diff_arrow_down_locator.is_visible()
+        else:
+            assert markets_page.diff_arrow_up_locator.is_visible()
 
     def test_pipeline_tab_metrics(self, markets_page, api_client):
         data = {"context": "talaMarketDashboard",
@@ -110,5 +114,8 @@ class TestMetrics:
         assert expected_company_listed == markets_page.company_listed_locator.inner_text()
         assert expected_company_private == markets_page.company_private_locator.inner_text()
         assert expected_company_pjv == markets_page.company_pjv_locator.inner_text()
-
+        if "-" in str(expected_company_ww_sales_diff):
+            assert markets_page.diff_arrow_down_locator.is_visible()
+        else:
+            assert markets_page.diff_arrow_up_locator.is_visible()
 
