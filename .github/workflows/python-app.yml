@@ -41,13 +41,14 @@ jobs:
         AUDIENCE: ${{ secrets.AUDIENCE }}
         API_TOKEN_URL: ${{ secrets.API_TOKEN_URL }}
       run: |
-        API_TOKEN=$(curl -X POST -H "Content-Type: application/json" -d '{
-          "username": "'"$EMAIL"'",
-          "password": "'"$PASSWORD"'",
-          "client_id": "'"$CLIENT_ID"'",
-          "audience": "'"$AUDIENCE"'",
-          "grant_type": "password"
-          }' $API_TOKEN_URL/oauth/token | jq -r '.access_token')
+        API_TOKEN=$(curl -X POST -d '{
+        "username": "'"$EMAIL"'",
+        "password": "'"$PASSWORD"'",
+        "client_id": "'"$CLIENT_ID"'",
+        "audience": "'"$AUDIENCE"'",
+        "grant_type": "password"
+        }' $API_TOKEN_URL/oauth/token | jq -r '.access_token')
+
         echo "API_TOKEN=$API_TOKEN" >> $GITHUB_ENV
     - name: Test with pytest
       env:
