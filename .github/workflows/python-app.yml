@@ -38,6 +38,12 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Obtain API token
+      env:
+        EMAIL: ${{ secrets.EMAIL }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        AUDIENCE: ${{ secrets.AUDIENCE }}
+        API_TOKEN_URL: ${{ secrets.API_TOKEN_URL }}
       run: |
         API_TOKEN=$(curl -X POST -H "Content-Type: application/json" -d '{
           "username": "'"$EMAIL"'",
@@ -45,7 +51,7 @@ jobs:
           "client_id": "'"$CLIENT_ID"'",
           "audience": "'"$AUDIENCE"'",
           "grant_type": "password"
-        }' $API_TOKEN_URL | jq -r '.access_token')
+        }' $API_TOKEN_URL/oauth/token | jq -r '.access_token')
         echo "API_TOKEN=$API_TOKEN" >> $GITHUB_ENV
     - name: Test with pytest
       env:
@@ -55,6 +61,7 @@ jobs:
         API_URL: ${{ secrets.API_URL }}
         API_TOKEN: ${{ env.API_TOKEN }}
         API_TOKEN_URL: ${{ env.API_TOKEN_URL }}
+        CLIENT_ID: ${{ env.CLIENT_ID }}
       run: |
         xvfb-run pytest
     - name: Print secrets
