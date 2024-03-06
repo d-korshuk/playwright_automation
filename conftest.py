@@ -1,5 +1,5 @@
 import pytest
-from playwright.sync_api import sync_playwright, BrowserContext
+from playwright.sync_api import sync_playwright
 import requests
 from pages.markets_page import MarketsPage
 from pages.login_page import LoginPage
@@ -13,7 +13,9 @@ URL = os.environ['URL']
 EMAIL = os.environ['EMAIL']
 PASSWORD = os.environ['PASSWORD']
 API_URL = os.environ['API_URL']
-API_TOKEN = os.environ['API_TOKEN']
+API_TOKEN_URL = os.environ['API_TOKEN_URL']
+CLIENT_ID = os.environ['CLIENT_ID']
+AUDIENCE = os.environ["AUDIENCE"]
 
 
 @pytest.fixture(scope="class")
@@ -68,8 +70,9 @@ def api_client():
     def _api_client(method, data, headers=None):
         if headers is None:
             headers = {}
+        api_token = get_api_token()
 
-        headers["Authorization"] = f"Bearer {API_TOKEN}"
+        headers["Authorization"] = f"Bearer {api_token}"
         url = API_URL
 
         if method.upper() == "GET":
@@ -82,3 +85,19 @@ def api_client():
         return response
 
     return _api_client
+
+
+def get_api_token():
+    url = API_TOKEN_URL
+    payload = {
+        "username": EMAIL,
+        "password": PASSWORD,
+        "client_id": CLIENT_ID,
+        "audience": AUDIENCE,
+        "grant_type": "password"
+    }
+    response = requests.post(url, json=payload)
+    if response.status_code == 200:
+        return response.json().get("access_token")
+    else:
+        raise Exception("Failed to obtain API token")
