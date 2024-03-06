@@ -51,6 +51,7 @@ jobs:
       env:
         PASSWORD: ${{ secrets.PASSWORD }}
         CLIENT_ID: ${{ secrets.CLIENT_ID }}
+        AUDIENCE: ${{ secrets.AUDIENCE }}
         URL: ${{ secrets.URL }}
         EMAIL: ${{ secrets.EMAIL }}
         API_URL: ${{ secrets.API_URL }}
