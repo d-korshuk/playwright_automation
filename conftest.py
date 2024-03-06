@@ -97,7 +97,5 @@ def get_api_token():
         "grant_type": "password"
     }
     response = requests.post(url, json=payload)
-    if response.status_code == 200:
-        return response.json().get("access_token")
-    else:
-        raise Exception("Failed to obtain API token")
+    return response.json().get("access_token")
+
