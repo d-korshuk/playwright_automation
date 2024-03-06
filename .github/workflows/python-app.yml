@@ -59,10 +59,4 @@ jobs:
         API_TOKEN_URL: ${{ secrets.API_TOKEN_URL }}
       run: |
         xvfb-run pytest
-    - name: Print secrets
-      run: |
-        echo "URL: $URL"
-        echo "EMAIL: $EMAIL"
-        echo "PASSWORD: $PASSWORD"
-        echo "API_URL: $API_URL"
-        echo "API_TOKEN: $API_TOKEN"
+
