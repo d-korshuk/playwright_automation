@@ -27,6 +27,10 @@ jobs:
         python -m pip install playwright
         python -m playwright install chromium
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Load environment variables from .env file
+      run: |
+        python -m pip install python-dotenv
+        python -c "from dotenv import load_dotenv; load_dotenv()"
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -34,12 +38,6 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Obtain API token
-      env:
-        CLIENT_ID: ${{ secrets.CLIENT_ID }}
-        EMAIL: ${{ secrets.EMAIL }}
-        PASSWORD: ${{ secrets.PASSWORD }}
-        AUDIENCE: ${{ secrets.AUDIENCE }}
-        API_TOKEN_URL: ${{ secrets.API_TOKEN_URL }}
       run: |
         API_TOKEN=$(curl -X POST -H "Content-Type: application/json" -d '{
           "username": "'"$EMAIL"'",
@@ -55,7 +53,8 @@ jobs:
         URL: ${{ secrets.URL }}
         EMAIL: ${{ secrets.EMAIL }}
         API_URL: ${{ secrets.API_URL }}
-        API_TOKEN: ${{ env.API_TOKEN }} # Using the dynamically obtained API token
+        API_TOKEN: ${{ env.API_TOKEN }}
+        API_TOKEN_URL: ${{ env.API_TOKEN_URL }}
       run: |
         xvfb-run pytest
     - name: Print secrets
