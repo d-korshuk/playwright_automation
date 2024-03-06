@@ -47,7 +47,7 @@ jobs:
           "client_id": "'"$CLIENT_ID"'",
           "audience": "'"$AUDIENCE"'",
           "grant_type": "password"
-        }' $API_TOKEN_URL/oauth/token | jq -r '.access_token')
+          }' $API_TOKEN_URL/oauth/token | jq -r '.access_token')
         echo "API_TOKEN=$API_TOKEN" >> $GITHUB_ENV
     - name: Test with pytest
       env:
