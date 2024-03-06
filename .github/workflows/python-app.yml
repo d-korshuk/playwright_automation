@@ -50,6 +50,7 @@ jobs:
     - name: Test with pytest
       env:
         PASSWORD: ${{ secrets.PASSWORD }}
+        CLIENT_ID: ${{ secrets.CLIENT_ID }}
         URL: ${{ secrets.URL }}
         EMAIL: ${{ secrets.EMAIL }}
         API_URL: ${{ secrets.API_URL }}
