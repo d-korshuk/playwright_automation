@@ -1,3 +1,5 @@
+import os
+
 from playwright.sync_api import Page
 
 
@@ -14,6 +16,10 @@ class CompanyItemPage:
         self.cagr_locator = page.get_by_test_id("cagr")
         self.market_cap_locator = page.get_by_test_id("marketCap")
         self.drugs_sales_forecast = page.get_by_test_id("drugsSalesForecast")
+
+    def open_company_page(self):
+        url = os.environ.get("URL", "") + "/dashboard/company/15253"
+        self.page.goto(url)
 
 
 

@@ -1,6 +1,8 @@
 import pytest
 from playwright.sync_api import sync_playwright
 import requests
+
+from pages.company_item_page import CompanyItemPage
 from pages.markets_page import MarketsPage
 from pages.login_page import LoginPage
 from playwright.sync_api import expect
@@ -29,6 +31,11 @@ def browser():
 @pytest.fixture(scope="class")
 def login_page(page):
     return LoginPage(page)
+
+
+@pytest.fixture(scope="class")
+def company_page(page):
+    return CompanyItemPage(page)
 
 
 @pytest.fixture(scope="class")
@@ -98,4 +105,3 @@ def get_api_token():
     }
     response = requests.post(url, json=payload)
     return response.json().get("access_token")
-
