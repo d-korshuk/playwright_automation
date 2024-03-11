@@ -74,13 +74,13 @@ def markets_page(page):
 
 @pytest.fixture
 def api_client():
-    def _api_client(method, data, headers=None):
+    def _api_client(endpoint, method, data, headers=None):
         if headers is None:
             headers = {}
         api_token = get_api_token()
 
         headers["Authorization"] = f"Bearer {api_token}"
-        url = API_URL
+        url = API_URL + endpoint
 
         if method.upper() == "GET":
             response = requests.get(url, params=data, headers=headers)

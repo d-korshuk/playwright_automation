@@ -9,7 +9,7 @@ class TestMetrics:
         data = {"context": "talaMarketDashboard",
                 "request": {"functions": {"metrics_overview": {"years": [2023, 2029]}}}}
 
-        response = api_client("post", data=data)
+        response = api_client("/markets/metrics", "post", data=data)
         response_json = response.json()['response']['functions']['metrics_overview']['data'][0]
 
         expected_overview_wwsales_2023 = response_json['worldwideSalesStart']
@@ -39,7 +39,7 @@ class TestMetrics:
         data = {"context": "talaMarketDashboard",
                 "request": {"functions": {"metrics_sales": {"years": [2023, 2029]}}}}
 
-        response = api_client("post", data=data)
+        response = api_client("/markets/metrics", "post", data=data)
         response_json = response.json()['response']['functions']['metrics_sales']['data'][0]
 
         markets_page.click_here_to_nav_to_dashboard()
@@ -67,7 +67,7 @@ class TestMetrics:
         data = {"context": "talaMarketDashboard",
                 "request": {"functions": {"metrics_pipeline": {"years": {}}}}}
 
-        response = api_client("post", data=data)
+        response = api_client("/markets/metrics", "post", data=data)
         response_json = response.json()['response']['functions']['metrics_pipeline']['data'][0]
 
         markets_page.click_here_to_nav_to_dashboard()
@@ -87,7 +87,7 @@ class TestMetrics:
         data = {"context": "talaMarketDashboard",
                 "request": {"functions": {"metrics_company": {"years": [2023, 2029]}}}}
 
-        response = api_client("post", data=data)
+        response = api_client("/markets/metrics", "post", data=data)
         response_json = response.json()['response']['functions']['metrics_company']['data'][0]
 
         markets_page.click_here_to_nav_to_dashboard()
