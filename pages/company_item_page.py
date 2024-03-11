@@ -18,7 +18,7 @@ class CompanyItemPage:
         self.drugs_sales_forecast = page.get_by_test_id("drugsSalesForecast")
 
     def open_company_page(self):
-        url = os.environ.get("URL", "") + "/dashboard/company/15253"
+        url = os.environ.get("URL") + "/dashboard/company/15253"
         self.page.goto(url)
 
 
