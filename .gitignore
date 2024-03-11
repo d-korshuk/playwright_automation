@@ -14,4 +14,6 @@ browser/
 playwright.config.json
 *.env
 /config/secret_config.py
+*/__init__.py
+
 
