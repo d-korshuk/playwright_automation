@@ -67,7 +67,7 @@ class MarketsPage:
 
         # Development Status Summary widget locators
         self.dev_status_title_locator = page.get_by_text("Development Status Summary")
-        sefl.dev_status_year_locator = page.get_by_test_id("developmentStatus").get_by_text("2029")
+        self.dev_status_year_locator = page.get_by_test_id("developmentStatus").get_by_text("2029")
         self.dev_status_prod_count_tab_locator = page.get_by_role("button", name="Product Count")
         self.dev_status_prod_w_sales_locator = page.get_by_role("button", name="Products with Sales")
         self.dev.status_expand_icon_locator = page.get_by_test_id("developmentStatus").get_by_role("button").nth(2)
