@@ -1,4 +1,3 @@
-#import allure
 import pytest
 from playwright.sync_api import expect
 
@@ -6,14 +5,6 @@ from playwright.sync_api import expect
 @pytest.mark.usefixtures("setup")
 class TestWidget:
 
-    #@allure.title("Check the expanding of widget - 39710")
-    #def test_expand_widget(self, login_to_app, markets_page):
-    #    markets_page.open_overview_tab()
-    #    markets_page.expand_widget()
-     #   expect(markets_page.wwsales_2022_locator).not_to_be_visible()
-
-    #@pytest.mark.widget1
-    #@allure.title("Check switching between tabs - C39772")
     def test_switch_tabs(self, login_to_app, markets_page):
         markets_page.open_overview_tab()
 
