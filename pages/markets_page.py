@@ -64,8 +64,22 @@ class MarketsPage:
         self.top_by_sales_companies_tab_locator = page.get_by_role("button", name="Companies")
         self.top_by_sales_technology_tab_locator = page.get_by_role("button", name="Technology")
         self.top_by_sales_moa_tab_locator = page.get_by_role("button", name="MoA")
-        # self.top_by_sales_expand_icon_locator =
-        # self.top_by_sales_narrow_icon_locator =
+
+        # Development Status Summary widget locators
+        self.dev_status_title_locator = page.get_by_text("Development Status Summary")
+        sefl.dev_status_year_locator = page.get_by_test_id("developmentStatus").get_by_text("2029")
+        self.dev_status_prod_count_tab_locator = page.get_by_role("button", name="Product Count")
+        self.dev_status_prod_w_sales_locator = page.get_by_role("button", name="Products with Sales")
+        self.dev.status_expand_icon_locator = page.get_by_test_id("developmentStatus").get_by_role("button").nth(2)
+        self.dev_status_collapse_icon_locator = page.get_by_role("button").nth(2)
+        self.dev_status_marketed_locator = page.get_by_text("Marketed")
+        self.dev_status_approved_locator = page.get_by_text("Approved")
+        self.dev_status_filed_locator = page.get_by_text("Filed")
+        self.dev_status_phase3_locator = page.get_by_text("Phase III")
+        self.dev_status_phase2_locator = page.get_by_text("Phase II", exact=True)
+        self.dev_status_phase1_locator = page.get_by_text("Phase I", exact=True)
+        self.dev_status_preclinical_locator = page.get_by_text("Pre-Clinical")
+        self.dev_status_research_project_locator = page.get_by_text("Research Project")
 
         # Global Filters locators
         self.global_filters_collapse_icon_locator = page.get_by_test_id("drawer-btn")
