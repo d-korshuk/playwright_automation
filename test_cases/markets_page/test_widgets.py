@@ -15,7 +15,9 @@ class TestWidgets:
         markets_page.develop_status_collapse_icon_locator.click()
         expect(markets_page.develop_status_expand_icon_locator).to_be_visible()
 
-    def test_switch_widget_tabs(self, login_to_app, markets_page):
+    def test_switch_widget_tabs(self, markets_page):
+        markets_page.click_here_to_nav_to_dashboard()
+
         expect(markets_page.develop_status_prod_count_tab_locator).to_have_attribute("aria-pressed", "true")
         expect(markets_page.develop_status_prod_w_sales_locator).to_have_attribute("aria-pressed", "false")
 
