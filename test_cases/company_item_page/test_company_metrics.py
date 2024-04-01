@@ -31,16 +31,16 @@ class TestMCompanyMetrics:
         company_page.open_company_page()
         expect(company_page.logo_locator).to_be_visible()
 
-        assert expected_company_name == company_page.company_name.inner_text()
-        assert expected_company_size == company_page.company_size_locator.inner_text()
-        assert expected_wwsales_2023 == company_page.wwsales_2023_locator.inner_text()
-        assert expected_wwsales_2029 == company_page.wwsales_2029_locator.inner_text()
-        assert expected_cagr == company_page.cagr_locator.inner_text()
-        assert expected_market_cap == company_page.market_cap_locator.inner_text()
-        assert expected_drugs_sales_forecast == company_page.drugs_sales_forecast.inner_text()
+        assert expected_company_name == company_page.company_name.inner_text(), "COMPANY NAME"
+        assert expected_company_size == company_page.company_size_locator.inner_text(), "COMPANY SIZE"
+        assert expected_wwsales_2023 == company_page.wwsales_2023_locator.inner_text(), "SALES2023"
+        assert expected_wwsales_2029 == company_page.wwsales_2029_locator.inner_text(), "SALES2029"
+        assert expected_cagr == company_page.cagr_locator.inner_text(), "CAGR"
+        assert expected_market_cap == company_page.market_cap_locator.inner_text(), "MARKET CAP"
+        assert expected_drugs_sales_forecast == company_page.drugs_sales_forecast.inner_text(), "DRUGS FORECAST"
 
         company_page.show_more_locator.click()
-        assert expected_profile in company_page.company_profile.inner_text()
+        assert expected_profile in company_page.company_profile.inner_text(), "SHOW MORE LOCATOR"
 
         company_page.modal_close_locator.click()
         expect(company_page.modal_close_locator).not_to_be_visible()

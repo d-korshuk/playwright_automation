@@ -8,16 +8,18 @@ from pages.login_page import LoginPage
 from playwright.sync_api import expect
 
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 expect.set_options(timeout=15_000)
 
-URL = os.environ['URL']
-EMAIL = os.environ['EMAIL']
-PASSWORD = os.environ['PASSWORD']
-API_URL = os.environ['API_URL']
-API_TOKEN_URL = os.environ['API_TOKEN_URL']
-CLIENT_ID = os.environ['CLIENT_ID']
-AUDIENCE = os.environ["AUDIENCE"]
+URL = os.environ.get("URL")
+EMAIL = os.environ.get("EMAIL")
+PASSWORD = os.environ.get("PASSWORD")
+API_URL = os.environ.get("API_URL")
+API_TOKEN_URL = os.environ.get("API_TOKEN_URL")
+CLIENT_ID = os.environ.get("CLIENT_ID")
+AUDIENCE = os.environ.get("AUDIENCE")
 
 
 @pytest.fixture(scope="class")
@@ -57,10 +59,10 @@ def configure_browser_context(context):
 @pytest.fixture(scope="function")
 def login_to_app(login_page):
     login_page.click_header_login_btn()
-    email = os.environ['EMAIL']
+    email = os.environ.get('EMAIL')
     login_page.enter_email(email)
     login_page.click_next_btn()
-    password = os.environ['PASSWORD']
+    password = os.environ.get('PASSWORD')
     login_page.enter_password(password)
     login_page.click_submit_button()
     login_page.click_continue_wo_pass()

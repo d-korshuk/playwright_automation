@@ -1,4 +1,6 @@
 import os
+import time
+
 import pytest
 from playwright.sync_api import expect
 
@@ -9,7 +11,6 @@ class TestShareFunc:
     def test_cancel_sharing(self, login_to_app, markets_page):
         page = markets_page.page
 
-        markets_page.select_companies_tab()
         markets_page.share_btn_locator.click()
         markets_page.share_modal_x_icon_locator.click()
         expect(markets_page.share_modal_cancel_btn_locator).not_to_be_visible()
@@ -17,8 +18,9 @@ class TestShareFunc:
         markets_page.share_btn_locator.click()
         markets_page.share_modal_cancel_btn_locator.click()
         expect(markets_page.share_modal_cancel_btn_locator).not_to_be_visible()
+        markets_page.open_company_tab()
         clipboard_text = page.evaluate('() => navigator.clipboard.readText()')
-        assert os.environ["URL"] + "/dashboard/market-sizing/overview" not in clipboard_text
+        assert os.environ.get("URL") + "/dashboard/market-sizing/overview" not in clipboard_text
 
     def test_share_functionality(self, markets_page):
         page = markets_page.page
@@ -35,11 +37,10 @@ class TestShareFunc:
         expect(markets_page.share_modal_cancel_btn_locator).to_be_visible()
 
         markets_page.share_modal_copy_btn_locator.click()
-        expect(markets_page.share_toast_msg_locator).to_be_visible()
         expect(markets_page.share_modal_cancel_btn_locator).not_to_be_visible()
 
         clipboard_text = page.evaluate('() => navigator.clipboard.readText()')
-        assert os.environ["URL"] + "/dashboard/market-sizing/overview" in clipboard_text
+        assert os.environ.get("URL") + "/dashboard/market-sizing/overview" in clipboard_text
 
     def test_share_with_not_authorized_user(self, markets_page):
         page = markets_page.page

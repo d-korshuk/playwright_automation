@@ -8,7 +8,7 @@ class CompanyItemPage:
 
         # Top panel locators
         self.logo_locator = page.get_by_test_id("DomainIcon").first
-        self.company_name = page.get_by_text("Johnson & Johnson", exact=True)
+        self.company_name = page.get_by_role("heading", name="Johnson & Johnson")
         self.company_profile = page.get_by_label("Johnson & Johnson").locator("div").first
         self.company_size_locator = page.get_by_test_id("companySize")
         self.wwsales_2023_locator = page.get_by_test_id("noMetricsData").first

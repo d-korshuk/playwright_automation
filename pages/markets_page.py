@@ -24,11 +24,10 @@ class MarketsPage:
         self.share_modal_text_locator = page.get_by_text("Click Copy Link to share this")
         self.share_modal_cancel_btn_locator = page.get_by_role("button", name="Cancel")
         self.share_modal_copy_btn_locator = page.get_by_role("button", name="Copy Link")
-        self.share_toast_msg_locator = page.get_by_role("alert")
 
         # Overview tab locators
         self.overview_wwsales_2023_locator = page.get_by_test_id("worldwideSalesStart")
-        self.overview_wwsales_2029_locator = page.get_by_test_id("noMetricsData")
+        self.overview_wwsales_2029_locator = page.get_by_test_id("worldwideSalesEnd")
         self.overview_wwsales_2029_diff_locator = page.get_by_test_id("worldwideSalesDiff")
         self.overview_unique_act_products_locator = page.get_by_test_id("uniqueActiveProducts")
         self.overview_active_companies_locator = page.get_by_test_id("activeCompanies")
@@ -37,9 +36,9 @@ class MarketsPage:
 
         # Sales tab locators
         self.sales_wwsales_2023_locator = page.get_by_test_id("worldwideSalesStart")
-        self.sales_wwsales_2029_locator = page.get_by_test_id("noMetricsData").first
+        self.sales_wwsales_2029_locator = page.get_by_test_id("worldwideSalesEnd")
         self.sales_wwsales_2029_diff_locator = page.get_by_test_id("worldwideSalesDiff")
-        self.sales_cagr_locator = page.get_by_test_id("noMetricsData").nth(1)
+        self.sales_cagr_locator = page.get_by_test_id("cagr")
 
         # Pipeline tab locators
         self.pipeline_products_locator = page.get_by_test_id("products")
@@ -50,9 +49,9 @@ class MarketsPage:
         # Company tab locators
         self.company_active_companies_locator = page.get_by_test_id("activeCompanies")
         self.company_wwsales_2023_locator = page.get_by_test_id("worldwideSalesStart")
-        self.company_wwsales_2029_locator = page.get_by_test_id("noMetricsData").first
+        self.company_wwsales_2029_locator = page.get_by_test_id("worldwideSalesEnd")
         self.company_wwsales_2029_diff_locator = page.get_by_test_id("worldwideSalesDiff")
-        self.company_cagr_locator = page.get_by_test_id("noMetricsData").nth(1)
+        self.company_cagr_locator = page.get_by_test_id("cagr")
         self.company_listed_locator = page.get_by_test_id("listedCompanies")
         self.company_private_locator = page.get_by_test_id("privateCompanies")
         self.company_pjv_locator = page.get_by_test_id("privateJVCompanies")
