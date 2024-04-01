@@ -6,7 +6,7 @@
 1. Go to the directory with already cloned repo and create a virtual env (https://docs.python.org/3/library/venv.html)
 
 2. Install all the dependencies
-pip install -r app/requirements.txt
+pip install -r requirements.txt
 
 ## Test execution
 Command to run tests:
