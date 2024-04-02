@@ -1,4 +1,4 @@
-from playwright.sync_api import Page
+from playwright.sync_api import Page, Locator
 
 
 class MarketsPage:
@@ -89,7 +89,21 @@ class MarketsPage:
             3)
         self.to_dropdown_locator = page.get_by_test_id("boxRangeSelector").locator("div").filter(has_text="2029").nth(3)
 
-
+        self.products_locator = page.get_by_label("Target")
+        self.generic_name_locator = page.get_by_test_id("product-filters").get_by_placeholder("Start Typing").nth(1)
+        self.proprietary_level_locator = page.get_by_test_id("product-filters").locator("#nxp-grouped-autocomplete")
+        self.company_locator = page.get_by_test_id("company-filters").get_by_placeholder("Start Typing").first
+        self.company_size_locator = page.get_by_test_id("company-filters").get_by_placeholder("Start Typing").nth(1)
+        self.listed_private_company_locator = page.get_by_test_id("company-filters").get_by_placeholder("Start Typing").nth(3)
+        self.company_headquarted_locator = page.get_by_test_id("company-filters").get_by_placeholder("Start Typing").nth(4)
+        self.market_status_locator = page.get_by_test_id("development-filters").get_by_placeholder("Start Typing").first
+        self.inidication_status_locator = page.get_by_test_id("development-filters").get_by_placeholder("Start Typing").nth(1)
+        self.indication_locator = page.locator("#nxp-grouped-autocomplete").nth(1)
+        self.moa_locator = page.locator("#nxp-grouped-autocomplete").nth(2)
+        self.route_admin_locator = page.get_by_test_id("classification-filters").locator("#nxp-autocomplete").first
+        self.target_locator = page.get_by_test_id("classification-filters").locator("#nxp-autocomplete").nth(1)
+        self.technology_locator = page.locator("#nxp-grouped-autocomplete").nth(3)
+        self.technology_subtype_locator = page.get_by_test_id("classification-filters").locator("#nxp-autocomplete").nth(2)
 
     def open_overview_tab(self):
         self.overview_tab_locator.click()
